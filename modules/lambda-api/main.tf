@@ -9,7 +9,7 @@ module "lambda_function" {
   version = "~> 6.0"
 
   function_name = "${random_pet.this.id}-lambda"
-  description   = "My awesome lambda function"
+  description   = var.lambda_description
   handler       = "index.lambda_handler"
   runtime       = "python3.11"
   publish       = true

@@ -1,10 +1,10 @@
 # Local .terraform directories
-.terraform/
+modules/lambda-api/.terraform/
 
 .terragrunt-cache/
 .terragrunt.lock.hcl
 .terraform.lock.hcl
-
+.idea/
 modules/builds/
 
 # .tfstate files
