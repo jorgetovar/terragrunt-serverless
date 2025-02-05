@@ -1,3 +1,7 @@
 variable "lambda_description" {
-  type        = string
+  type = string
+}
+
+variable "environment" {
+  type = string
 }

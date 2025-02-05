@@ -3,4 +3,5 @@ terraform {
 }
 inputs = {
   lambda_description = "My awesome Lambda Function"
+  environment       = "dev"
 }

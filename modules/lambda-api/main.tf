@@ -1,5 +1,3 @@
-
-
 provider "aws" {
   region = "us-east-1"
 }
@@ -13,8 +11,11 @@ module "lambda_function" {
   handler       = "index.lambda_handler"
   runtime       = "python3.11"
   publish       = true
-  source_path = "${path.module}/python"
+  source_path   = "${path.module}/python"
 
+  environment_variables = {
+    ENVIRONMENT = var.environment
+  }
   allowed_triggers = {
     AllowExecutionFromAPIGateway = {
       service    = "apigateway"
@@ -35,11 +36,13 @@ module "api_gateway" {
   name          = "${random_pet.this.id}-http"
   description   = "My awesome HTTP API Gateway"
   protocol_type = "HTTP"
-  
+
   create_api_domain_name = false
 
   cors_configuration = {
-    allow_headers = ["content-type", "x-amz-date", "authorization", "x-api-key", "x-amz-security-token", "x-amz-user-agent"]
+    allow_headers = [
+      "content-type", "x-amz-date", "authorization", "x-api-key", "x-amz-security-token", "x-amz-user-agent"
+    ]
     allow_methods = ["*"]
     allow_origins = ["*"]
   }

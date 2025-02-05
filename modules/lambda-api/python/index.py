@@ -1,4 +1,7 @@
 import json
+import os
+
+environment = os.environ['ENVIRONMENT']
 
 def lambda_handler(event, context):
     return {
@@ -8,6 +11,6 @@ def lambda_handler(event, context):
             'Access-Control-Allow-Origin': '*'
         },
         'body': json.dumps({
-            'message': 'Hello from Lambda!'
+            'message': 'Hello from Lambda!' + environment
         })
     }
