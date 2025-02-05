@@ -1,7 +1,11 @@
 # Local .terraform directories
-**/.terraform/*
+.terraform/
 
-builds/
+.terragrunt-cache/
+.terragrunt.lock.hcl
+.terraform.lock.hcl
+
+modules/builds/
 
 # .tfstate files
 *.tfstate
@@ -24,9 +28,6 @@ override.tf.json
 # CLI configuration files
 .terraformrc
 terraform.rc
-
-# Ignore CLI local state data 
-.terraform.lock.hcl
 
 # Logs
 *.log
